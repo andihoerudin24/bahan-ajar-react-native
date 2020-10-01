@@ -1,0 +1,34 @@
+
+  return (
+    <ScrollView style={{ backgroundColor: "white" }}>
+      <View style={styles.container}>
+        <Image
+          source={require("../assets/login.png")}
+          resizeMode="center"
+          style={styles.image}
+        />
+        <Text style={styles.textTitle}>Welcome back</Text>
+        <Text style={styles.textBody}>Log in to your existant account</Text>
+        <View style={{ marginTop: 20 }} />
+        <Inputs name="Email" icon="user" />
+        <Inputs name="Password" icon="lock" pass={true} />
+        <Submit
+          title="LOG IN"
+          color="#0148a4"
+          clidked={() => {
+            props.navigation.dispatch(CommonActions.navigate('container'));
+          }}
+        />
+        <View style={{ flexDirection: "row", marginVertical: 5 }}>
+          <Text style={styles.textBody}>Don't Have an account</Text>
+          <Text
+            style={[styles.textBody, { color: "blue" }]}
+            onPress={() => props.navigation.navigate("SignupScreen")}
+          >
+            Sign Up
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
