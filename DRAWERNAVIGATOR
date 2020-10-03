@@ -1,4 +1,53 @@
 
+import { createDrawerNavigator,DrawerItemList } from "@react-navigation/drawer";
+import { Ionicons,Feather } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {SafeAreaView, Button, View,Platform } from "react-native";
+
+const Tab = createBottomTabNavigator();
+const MealsFavTabNavigator = () => {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        //activeColor: Color.accentColor,
+        activeColor: 'red',
+        barStyle: {
+          //backgroundColor: Color.primaryColor,
+          backgroundColor: 'red',
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Categori Food"
+        component={MainNavigator}
+        options={{
+          tabBarIcon: (tabInfo) => {
+            return (
+              <Ionicons
+                name="ios-restaurant"
+                size={25}
+                //color={Color.primaryColor}
+                color="red"
+              />
+            );
+          },
+        }}
+      />
+      {/* <Tab.Screen
+        name="Food Favorite"
+        component={FavNavigator}
+        options={{
+          tabBarIcon: (tabInfo) => {
+            return (
+              <Ionicons name="ios-star" size={25} color={Color.primaryColor} />
+            );
+          },
+        }}
+      /> */}
+    </Tab.Navigator>
+  );
+};
+
 
 const Drawer = createDrawerNavigator();
 const MainNavigator = () => {
@@ -11,7 +60,8 @@ const MainNavigator = () => {
             <DrawerItemList {...props} />
             <Button
               title="Logout"
-              color={Color.primary}
+              //color={Color.primary}
+              color="red"
               onPress={() => {
                  props.navigation.navigate("LoginScreen");
               }}
