@@ -1,0 +1,35 @@
+
+
+const Drawer = createDrawerNavigator();
+const MainNavigator = () => {
+  return (
+    <Drawer.Navigator 
+      drawerContent={(props) => {
+      return (
+        <View style={{ flex: 1, padding: 20 }}>
+          <SafeAreaView forceInset={{ top: "always", horizontal: "never" }}>
+            <DrawerItemList {...props} />
+            <Button
+              title="Logout"
+              color={Color.primary}
+              onPress={() => {
+                 props.navigation.navigate("LoginScreen");
+              }}
+            />
+          </SafeAreaView>
+        </View>
+      );
+    }}
+    >
+      <Drawer.Screen name="Food Categori" component={Navigations}  options={{
+          drawerIcon: (props) => (
+            <Ionicons
+              name={Platform.OS === "android" ? "md-pizza" : "ios-pizza"}
+              size={23}
+              color={props.color}
+            />
+          ),
+        }}/>
+      </Drawer.Navigator>
+  );
+};
