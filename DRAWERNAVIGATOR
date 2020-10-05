@@ -4,6 +4,41 @@ import { Ionicons,Feather } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {SafeAreaView, Button, View,Platform } from "react-native";
 
+
+//stack
+const ProfileStack = createStackNavigator()
+const ProfileNavigation = () =>{
+    return(
+      <ProfileStack.Navigator>
+          <ProfileStack.Screen name="Profiles" component={ProfileScreen} options={ProfileScreenOption} />
+      </ProfileStack.Navigator>
+    )
+}
+
+const FilterStack = createStackNavigator();
+const filterNavigations = () => {
+  return (
+    <FilterStack.Navigator>
+      <FilterStack.Screen name="FilterStack" component={FilterScreen} options={FilterScreenOption} />
+    </FilterStack.Navigator>
+  );
+};
+
+const StackFavotites = createStackNavigator();
+const FavNavigator = () => {
+  return (
+    <StackFavotites.Navigator>
+      <StackFavotites.Screen name="FavoriteScreen" component={FavoriteScreen} options={FavoriteScreenOption} />
+      <StackFavotites.Screen
+        name="MealDetailScreen"
+        component={MealsDetailScreen}
+      />
+    </StackFavotites.Navigator>
+  );
+};
+//end stack
+
+
 const Tab = createBottomTabNavigator();
 const MealsFavTabNavigator = () => {
   return (
