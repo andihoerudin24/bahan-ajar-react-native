@@ -80,6 +80,22 @@ const MainNavigator = () => {
             />
           ),
         }}/>
+        
+        <Drawer.Screen name="Filter" component={filterNavigations} options={{
+          drawerIcon: (props) => (
+            <Ionicons
+              name={Platform.OS === "android" ? "md-color-filter" : "ios-color-filter"}
+              size={23}
+              color={props.color}
+            />
+          ),
+        }}/>
+        <Drawer.Screen name="Profile" component={ProfileNavigation}  options={{
+          drawerIcon: (props) => (
+            <Feather name="user-check" size={23}  color={props.color} />
+          ),
+        }}/>
+        
       </Drawer.Navigator>
   );
 };
